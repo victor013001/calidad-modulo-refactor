@@ -15,5 +15,6 @@ public class SitasApplicationTest {
 
     @Test
     public void contextLoads() {
+        Assertions.assertEquals(1,1);
     }
 }
