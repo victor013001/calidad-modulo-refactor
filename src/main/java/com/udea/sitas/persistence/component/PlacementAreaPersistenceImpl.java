@@ -22,7 +22,7 @@ public class PlacementAreaPersistenceImpl implements PlacementAreaPersistence{
     public List<PlacementAreaDto> findAll() {
         return placementAreaRepository.findAll().stream()
                 .map(placementArea -> modelMapper.map(placementArea, PlacementAreaDto.class))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override

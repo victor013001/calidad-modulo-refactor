@@ -32,7 +32,7 @@ public class LuggagePersistenceImpl implements LuggagePersistence{
     public List<LuggageDto> findAll() {
         return luggageRepository.findAll().stream()
                 .map(luggage -> modelMapper.map(luggage, LuggageDto.class))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override
@@ -65,6 +65,6 @@ public class LuggagePersistenceImpl implements LuggagePersistence{
                         .orElseThrow())
                 .stream()
                 .map(luggage -> modelMapper.map(luggage, LuggageDto.class))
-                .collect(Collectors.toList());
+                .toList();
     }
 }

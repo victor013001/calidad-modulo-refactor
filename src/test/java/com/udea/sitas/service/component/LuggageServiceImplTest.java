@@ -13,7 +13,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 
 @ExtendWith(MockitoExtension.class)
-public class LuggageServiceImplTest {
+class LuggageServiceImplTest {
 
     @InjectMocks
     private LuggageServiceImpl luggageService;
@@ -24,7 +24,7 @@ public class LuggageServiceImplTest {
     private PlacementAreaService placementAreaService;
 
     @Test
-    public void GivenLuggageWithPlacementArea_WhenCreate_ShouldReturnWithId() {
+    void GivenLuggageWithPlacementArea_WhenCreate_ShouldReturnWithId() {
 
         PlacementAreaDto placementAreaTest = PlacementAreaDto.builder()
                 .id(1L)
@@ -62,4 +62,5 @@ public class LuggageServiceImplTest {
 
         Assertions.assertThat(luggageDtoResponse)
                 .hasFieldOrPropertyWithValue("id", 1L);
-    }}
+    }
+}
