@@ -33,7 +33,7 @@ public class PlacementAreaServiceImpl implements PlacementAreaService{
     @Override
     public void placementAreaExist(Long id) {
         log.info("{} Check if placement areas with ID {} exists", LOG_PREFIX, id);
-        if (placementAreaPersistence.placementAreaExist(id)) {
+        if (!placementAreaPersistence.placementAreaExist(id)) {
             throw new NoSuchElementException("Placement area does not exist");
         }
     }

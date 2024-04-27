@@ -4,13 +4,13 @@ spring:
   profiles:
     active: local
   datasource:
-    url: jdbc:oracle:thin:@localhost:1522/xe
-    username: system
-    password: oracle
-    driverClassName: oracle.jdbc.driver.OracleDriver
+    url: jdbc:mysql://localhost:3306/ssmu
+    username: ssmu
+    password: ssmu
+    driverClassName: com.mysql.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
     show-sql: true
 
 springdoc:
@@ -29,3 +29,9 @@ server:
 logging:
   level:
     root: info
+
+flyway:
+  url: jdbc:mysql://localhost:3306/mysql
+  schemas: ssmu
+  user: "ssmu"
+  password: "ssmu"
