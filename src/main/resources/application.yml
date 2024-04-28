@@ -1,12 +1,12 @@
 spring:
   application:
-    name: ssmu-api
+    name: sitas-api
   profiles:
     active: local
   datasource:
-    url: jdbc:mysql://localhost:3306/ssmu
-    username: ssmu
-    password: ssmu
+    url: jdbc:mysql://localhost:3306/sitas
+    username: sitas
+    password: sitas
     driverClassName: com.mysql.jdbc.Driver
   jpa:
     hibernate:
@@ -24,7 +24,7 @@ springdoc:
 server:
   port: 8080
   servlet:
-    context-path: /ssmu-api
+    context-path: /sitas-api
 
 logging:
   level:
@@ -32,6 +32,6 @@ logging:
 
 flyway:
   url: jdbc:mysql://localhost:3306/mysql
-  schemas: ssmu
-  user: "ssmu"
-  password: "ssmu"
+  schemas: sitas
+  user: "sitas"
+  password: "sitas"

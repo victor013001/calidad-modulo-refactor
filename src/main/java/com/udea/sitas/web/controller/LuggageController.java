@@ -9,6 +9,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,6 +32,7 @@ public class LuggageController {
                     @Content(mediaType = "application/json", schema = @Schema(implementation = RuntimeException.class)) })
     })
     @PostMapping
+    @ResponseStatus (value = HttpStatus.CREATED)
     public LuggageDto create(
             @RequestBody @Valid LuggageDto luggageRequest
     ) {
@@ -71,6 +73,7 @@ public class LuggageController {
                     @Content(mediaType = "application/json", schema = @Schema(implementation = RuntimeException.class)) })
     })
     @DeleteMapping("/{id}")
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void delete(
             @PathVariable Long id
     ) {
