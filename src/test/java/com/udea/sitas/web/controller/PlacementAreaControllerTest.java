@@ -19,7 +19,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import java.util.List;
 
 @ExtendWith(MockitoExtension.class)
-public class PlacementAreaControllerTest {
+class PlacementAreaControllerTest {
 
     private static final String BASE_ENDPOINT = "/placement-area";
 

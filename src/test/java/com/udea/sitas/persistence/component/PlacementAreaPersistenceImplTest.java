@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Optional;
 
 @ExtendWith(MockitoExtension.class)
-public class PlacementAreaPersistenceImplTest {
+class PlacementAreaPersistenceImplTest {
 
     @InjectMocks
     private PlacementAreaPersistenceImpl placementAreaPersistence;
