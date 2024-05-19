@@ -18,10 +18,14 @@ public class LuggageServiceImpl implements LuggageService{
 
     private final LuggagePersistence luggagePersistence;
     private final PlacementAreaService placementAreaService;
+    private final PlacementAreaMeasurementsService placementAreaMeasurementsService;
 
     @Override
     public LuggageDto create(LuggageDto luggageDto) {
-        checkPlacementAreaExist(luggageDto.getPlacementArea().getId());
+        Long placementAreaId = luggageDto.getPlacementAreaId();
+        checkPlacementAreaExist(placementAreaId);
+        checkPlacementAreaValidMeasurements(luggageDto, placementAreaId);
+        checkUserUniqueLuggage(luggageDto.getUserId());
         log.info("{} Save new luggage for user {}", LOG_PREFIX, luggageDto.getUserId());
         return luggagePersistence.save(luggageDto);
     }
@@ -47,8 +51,10 @@ public class LuggageServiceImpl implements LuggageService{
 
     @Override
     public LuggageDto update(LuggageDto luggageDto, Long id) {
+        Long placementAreaId = luggageDto.getPlacementAreaId();
         checkLuggageExist(id);
-        checkPlacementAreaExist(luggageDto.getPlacementArea().getId());
+        checkPlacementAreaExist(placementAreaId);
+        checkPlacementAreaValidMeasurements(luggageDto, placementAreaId);
         luggageDto.setId(id);
         log.info("{} Update luggage with ID {}, for user {}", LOG_PREFIX, id, luggageDto.getUserId());
         return luggagePersistence.save(luggageDto);
@@ -70,5 +76,16 @@ public class LuggageServiceImpl implements LuggageService{
 
     private void checkPlacementAreaExist(Long id) {
         placementAreaService.placementAreaExist(id);
+    }
+
+    private void checkPlacementAreaValidMeasurements(LuggageDto luggageDto, Long placementAreaId) {
+        placementAreaMeasurementsService.checkMeasurements(luggageDto, placementAreaId);
+    }
+
+
+    private void checkUserUniqueLuggage(Long userId) {
+        if (luggagePersistence.userHasLuggage(userId)) {
+            throw new IllegalArgumentException("User already has a luggage");
+        }
     }
 }

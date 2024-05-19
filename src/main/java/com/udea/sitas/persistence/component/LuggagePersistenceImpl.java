@@ -66,4 +66,10 @@ public class LuggagePersistenceImpl implements LuggagePersistence{
                 .map(luggage -> modelMapper.map(luggage, LuggageDto.class))
                 .toList();
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public boolean userHasLuggage(Long userId) {
+        return luggageRepository.existsByUserId(userId);
+    }
 }

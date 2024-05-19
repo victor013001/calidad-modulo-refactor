@@ -85,6 +85,22 @@
             <artifactId>flyway-mysql</artifactId>
         </dependency>
 
+        <!-- SCREENPLAY -->
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-core</artifactId>
+            <version>3.9.0</version>
+        </dependency>
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-junit</artifactId>
+            <version>3.9.0</version>
+        </dependency>
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-cucumber</artifactId>
+            <version>3.9.0</version>
+        </dependency>
 
     </dependencies>
 

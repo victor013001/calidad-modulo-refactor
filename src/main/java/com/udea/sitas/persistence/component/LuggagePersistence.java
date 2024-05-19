@@ -13,4 +13,5 @@ public interface LuggagePersistence {
 
     boolean luggageExist(Long id);
     List<LuggageDto> findAllByPlacementAreaId(Long id);
+    boolean userHasLuggage(Long userId);
 }

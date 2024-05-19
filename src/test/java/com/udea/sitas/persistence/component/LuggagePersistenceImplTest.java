@@ -5,7 +5,6 @@ import com.udea.sitas.dao.entity.PlacementArea;
 import com.udea.sitas.dao.repository.LuggageRepository;
 import com.udea.sitas.dao.repository.PlacementAreaRepository;
 import com.udea.sitas.persistence.dto.LuggageDto;
-import com.udea.sitas.persistence.dto.PlacementAreaDto;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -33,11 +32,6 @@ class LuggagePersistenceImplTest {
     @Spy
     private ModelMapper modelMapper;
 
-    PlacementAreaDto placementAreaDtoTest = PlacementAreaDto.builder()
-            .id(1L)
-            .name("Area test")
-            .build();
-
     PlacementArea placementAreaTest = PlacementArea.builder()
             .id(1L)
             .name("Area test")
@@ -55,7 +49,7 @@ class LuggagePersistenceImplTest {
             .length(10.0)
             .userId(1L)
             .quantity(1)
-            .placementArea(placementAreaDtoTest)
+            .placementAreaId(1L)
             .build();
 
     Luggage luggage1 = Luggage.builder()
@@ -184,8 +178,7 @@ class LuggagePersistenceImplTest {
                 .findByPlacementArea(placementAreaTest);
 
         Assertions.assertThat(luggageListResponse)
-                .extracting(LuggageDto::getPlacementArea)
-                .extracting(PlacementAreaDto::getId)
+                .extracting(LuggageDto::getPlacementAreaId)
                 .contains(1L);
     }
 }

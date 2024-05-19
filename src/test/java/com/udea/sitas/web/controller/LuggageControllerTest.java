@@ -2,7 +2,6 @@ package com.udea.sitas.web.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.udea.sitas.persistence.dto.LuggageDto;
-import com.udea.sitas.persistence.dto.PlacementAreaDto;
 import com.udea.sitas.service.component.LuggageService;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
@@ -35,11 +34,6 @@ class LuggageControllerTest {
 
     private MockMvc mockMvc;
 
-    PlacementAreaDto placementAreaTest = PlacementAreaDto.builder()
-            .id(1L)
-            .name("Area test")
-            .build();
-
     LuggageDto luggageDtoToSave = LuggageDto.builder()
             .bookingId(1L)
             .description("Test Luggage")
@@ -52,7 +46,7 @@ class LuggageControllerTest {
             .length(10.0)
             .userId(1L)
             .quantity(1)
-            .placementArea(placementAreaTest)
+            .placementAreaId(1L)
             .build();
 
     LuggageDto luggageDtoToUpdate = LuggageDto.builder()
@@ -67,7 +61,7 @@ class LuggageControllerTest {
             .length(10.0)
             .userId(1L)
             .quantity(1)
-            .placementArea(placementAreaTest)
+            .placementAreaId(1L)
             .build();
 
     LuggageDto luggageDto1 = LuggageDto.builder()
@@ -83,7 +77,7 @@ class LuggageControllerTest {
             .length(10.0)
             .userId(1L)
             .quantity(1)
-            .placementArea(placementAreaTest)
+            .placementAreaId(1L)
             .build();
 
     LuggageDto luggageDto2 = LuggageDto.builder()
@@ -99,7 +93,7 @@ class LuggageControllerTest {
             .length(10.0)
             .userId(1L)
             .quantity(1)
-            .placementArea(placementAreaTest)
+            .placementAreaId(1L)
             .build();
 
     List<LuggageDto> luggageDtoList = List.of(luggageDto1,luggageDto2);

@@ -1,5 +1,6 @@
 package com.udea.sitas.persistence.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,7 +14,8 @@ import lombok.NoArgsConstructor;
 public class LuggageDto {
     private Long id;
 
-    @NotBlank
+    @JsonProperty("luggage_type")
+    @NotBlank (message = "type")
     private String type;
 
     @DecimalMin(value = "0", message = "Extra charge should not be less than 0")
@@ -36,14 +38,18 @@ public class LuggageDto {
 
     private String description;
 
-    @NotNull
+    @JsonProperty("user_id")
+    @NotNull (message = "user id")
     private Long userId;
 
-    @NotNull
+    @JsonProperty("flight_id")
+    @NotNull (message = "fligthId")
     private Long flightId;
 
-    @NotNull
+    @JsonProperty("booking_id")
+    @NotNull (message = "bookid")
     private Long bookingId;
 
-    private PlacementAreaDto placementArea;
+    @JsonProperty("placement_area_id")
+    private Long placementAreaId;
 }

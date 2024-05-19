@@ -9,6 +9,7 @@ import java.util.List;
 public interface LuggageRepository extends JpaRepository<Luggage, Long> {
 
     List<Luggage> findByPlacementArea(PlacementArea placementArea);
+    boolean existsByUserId(Long userId);
 
 }
 
