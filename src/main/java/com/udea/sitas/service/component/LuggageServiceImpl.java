@@ -25,7 +25,7 @@ public class LuggageServiceImpl implements LuggageService{
         Long placementAreaId = luggageDto.getPlacementAreaId();
         checkPlacementAreaExist(placementAreaId);
         checkPlacementAreaValidMeasurements(luggageDto, placementAreaId);
-        checkUserUniqueLuggage(luggageDto.getUserId());
+        checkUserUniqueLuggage(luggageDto.getUserId(), placementAreaId);
         log.info("{} Save new luggage for user {}", LOG_PREFIX, luggageDto.getUserId());
         return luggagePersistence.save(luggageDto);
     }
@@ -83,8 +83,8 @@ public class LuggageServiceImpl implements LuggageService{
     }
 
 
-    private void checkUserUniqueLuggage(Long userId) {
-        if (luggagePersistence.userHasLuggage(userId)) {
+    private void checkUserUniqueLuggage(Long userId, Long placementAreaId) {
+        if (placementAreaId.equals(1L) && luggagePersistence.userHasLuggage(userId)) {
             throw new IllegalArgumentException("User already has a luggage");
         }
     }

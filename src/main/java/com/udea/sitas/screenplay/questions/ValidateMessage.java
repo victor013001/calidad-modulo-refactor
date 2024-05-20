@@ -5,21 +5,23 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 
+import java.util.Arrays;
+
 public class ValidateMessage implements Question<Boolean> {
 
-    private final String text;
+    private final String[] texts;
 
-    public ValidateMessage(String text) {
-        this.text = text;
+    public ValidateMessage(String... texts) {
+        this.texts = texts;
     }
 
-    public static ValidateMessage with(String text) {
-        return new ValidateMessage(text);
+    public static ValidateMessage with(String... texts) {
+        return new ValidateMessage(texts);
     }
 
     @Override
     public Boolean answeredBy(Actor actor) {
-        String currentMessageText =  BrowseTheWeb.as(actor).find(LuggageManagementPage.ERROR_ALERT_MESSAGE).getText();
-        return currentMessageText.equals(text);
+        String currentMessageText =  BrowseTheWeb.as(actor).find(LuggageManagementPage.ALERT_MESSAGE).getText();
+        return Arrays.stream(texts).allMatch(currentMessageText::contains);
     }
 }

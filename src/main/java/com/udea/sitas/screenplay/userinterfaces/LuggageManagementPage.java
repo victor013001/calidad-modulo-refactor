@@ -15,6 +15,15 @@ public class LuggageManagementPage extends PageObject {
     public static final Target ADD_STORAGE_LUGGAGE_BUTTON = Target.the("Storage Luggage Button")
             .located(By.id("Equipaje de Bodega"));
 
+    public static final Target GET_LUGGAGE_BUTTON = Target.the("Get Luggage Button")
+            .locatedBy("//*[@id=\"root\"]/div[1]/div/div[2]/button");
+
+    public static final Target DELETE_LUGGAGE_BUTTON = Target.the("Delete Luggage Button")
+            .locatedBy("/html/body/div[2]/div[3]/div/div/table/tbody/tr/td[7]/button");
+
+    public static final Target LUGGAGE_LIST_EMPTY = Target.the("Get Luggage list empty")
+            .locatedBy("/html/body/div[2]/div[3]/div/p");
+
     public static final Target TEXT_INPUT_WIDTH = Target.the("Text input Width")
             .locatedBy("/html/body/div[2]/div[3]/form/div/div[1]/div/div/input");
 
@@ -39,6 +48,12 @@ public class LuggageManagementPage extends PageObject {
     public static final Target SAVE_LUGGAGE_BUTTON = Target.the("Save Luggage Button")
             .locatedBy("/html/body/div[2]/div[3]/form/div/div[11]/button");
 
-    public static final Target ERROR_ALERT_MESSAGE = Target.the("Error alert message")
-            .locatedBy("/html/body/div[1]/div[1]/div/div[1]/div/div[1]/div[3]/div/div[2]");
+    public static final Target ALERT_MESSAGE = Target.the("Error alert message")
+            .located(By.id("snackbar"));
+
+    public static final Target TABLE_ITEM_DESCRIPTION = Target.the("Table item description")
+            .locatedBy("/html/body/div[2]/div[3]/div/div/table/tbody/tr/td[5]");
+
+    public static final Target TABLE_ITEM_LUGGAGE_TYPE = Target.the("Table item luggage type")
+            .locatedBy("/html/body/div[2]/div[3]/div/div/table/tbody/tr/td[6]");
 }
