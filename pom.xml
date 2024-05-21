@@ -115,6 +115,7 @@
                 <configuration>
                     <excludes>
                         <exclude>**/com/udea/sitas/dao/**/*</exclude>
+                        <exclude>**/com/udea/sitas/screenplay/**/*</exclude>
                         <exclude>**/com/udea/sitas/**/config/*</exclude>
                         <exclude>**/com/udea/sitas/**/exceptions/*</exclude>
                         <exclude>**/com/udea/sitas/**/dto/*</exclude>
