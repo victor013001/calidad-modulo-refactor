@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  db:
+    image: mysql:8.0.33
+    command: --max_allowed_packet=100M
+    env_file:
+      - ./db/variables.env
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db/data:/var/lib/mysql
