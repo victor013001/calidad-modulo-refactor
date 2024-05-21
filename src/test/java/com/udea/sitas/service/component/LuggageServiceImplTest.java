@@ -26,6 +26,8 @@ class LuggageServiceImplTest {
     private LuggagePersistence luggagePersistence;
     @Mock
     private PlacementAreaService placementAreaService;
+    @Mock
+    private PlacementAreaMeasurementsService placementAreaMeasurementsService;
 
     LuggageDto luggageDtoToSave = LuggageDto.builder()
             .bookingId(1L)
@@ -89,7 +91,7 @@ class LuggageServiceImplTest {
             .placementAreaId(1L)
             .build();
 
-    List<LuggageDto> luggageDtoList = List.of(luggageDto1,luggageDto2);
+    List<LuggageDto> luggageDtoList = List.of(luggageDto1, luggageDto2);
 
     @Test
     void GivenLuggageWithPlacementArea_WhenCreate_ShouldReturnWithId() {
@@ -107,6 +109,9 @@ class LuggageServiceImplTest {
 
         Mockito.verify(luggagePersistence)
                 .save(luggageDtoToSave);
+
+        Mockito.verify(placementAreaMeasurementsService)
+                .checkMeasurements(luggageDtoToSave, 1L);
 
         Assertions.assertThat(luggageDtoResponse)
                 .hasFieldOrPropertyWithValue("id", 1L);
@@ -169,10 +174,13 @@ class LuggageServiceImplTest {
         final LuggageDto luggageDtoResponse = luggageService.update(luggageDtoToUpdate, 1L);
 
         Mockito.verify(luggagePersistence)
-                        .luggageExist(1L);
+                .luggageExist(1L);
 
         Mockito.verify(placementAreaService)
                 .placementAreaExist(1L);
+
+        Mockito.verify(placementAreaMeasurementsService)
+                .checkMeasurements(luggageDtoToUpdate, 1L);
 
         Assertions.assertThat(luggageDtoResponse)
                 .hasFieldOrPropertyWithValue("description", "Updated Luggage");

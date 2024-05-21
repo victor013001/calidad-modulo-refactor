@@ -199,8 +199,8 @@ class LuggageControllerTest {
                 .findByPlacementAreaId(1L);
 
         response.andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$[0].placementArea.id").value(1L))
-                .andExpect(MockMvcResultMatchers.jsonPath("$[1].placementArea.id").value(1L));
+                .andExpect(MockMvcResultMatchers.jsonPath("$[0].placement_area_id").value(1L))
+                .andExpect(MockMvcResultMatchers.jsonPath("$[1].placement_area_id").value(1L));
     }
 
 
