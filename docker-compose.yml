@@ -1,0 +1,23 @@
+version: '3.7'
+
+services:
+  db:
+    image: sitas_db_mysql:1.0
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: adminadmin
+      MYSQL_DATABASE: sitas
+      MYSQL_USER: sitas
+      MYSQL_PASSWORD: sitas
+
+  app:
+    image: sitas_luggage_managment_api:1.0
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/sitas
+      SPRING_DATASOURCE_USERNAME: sitas
+      SPRING_DATASOURCE_PASSWORD: sitas
+    depends_on:
+      - db

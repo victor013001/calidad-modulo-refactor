@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.2.3</version>
-        <relativePath/>
+        <relativePath />
     </parent>
 
     <groupId>com.udea</groupId>
     <artifactId>sitas-luggage-managment-API</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
 
     <properties>
         <java.version>17</java.version>
@@ -108,6 +108,14 @@
         <plugins>
 
             <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.udea.sitas.SitasApplication</mainClass>
+                </configuration>
+            </plugin>
+
+            <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.7</version>
@@ -116,7 +124,8 @@
                     <excludes>
                         <exclude>**/com/udea/sitas/dao/**/*</exclude>
                         <exclude>**/com/udea/sitas/screenplay/**/*</exclude>
-                        <exclude>**/com/udea/sitas/service/component/PlacementArea*MeasurementsImpl.class</exclude>
+                        <exclude>
+                            **/com/udea/sitas/service/component/PlacementArea*MeasurementsImpl.class</exclude>
                         <exclude>**/com/udea/sitas/**/config/*</exclude>
                         <exclude>**/com/udea/sitas/**/exceptions/*</exclude>
                         <exclude>**/com/udea/sitas/**/dto/*</exclude>
