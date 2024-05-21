@@ -266,7 +266,7 @@ public class ManageLuggageStepdefs {
         );
     }
 
-    @And("The luggage list shows no luggage")
+    @Then("The luggage list shows no luggage")
     public void theLuggageListShowsNoLuggage() {
         GivenWhenThen.then(userId1).should(
                 GivenWhenThen.seeThat(ValidateTableItem.with(Constants.EMPTY_LUGGAGE_MESSAGE, LuggageManagementPage.LUGGAGE_LIST_EMPTY))

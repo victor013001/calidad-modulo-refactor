@@ -5,9 +5,13 @@ Feature: TC_DELETE_PERSONAL_LUGGAGE
     When The user click the see my luggage button
     And The user sees all his luggage
     And The user click the delete luggage button
+    And The user sees the confirmation message
     And The user click the delete luggage button
+    And The user sees the confirmation message
     And The user click the delete luggage button
+    And The user sees the confirmation message
     And The user click the delete luggage button
+    And The user sees the confirmation message
     And The user click the delete luggage button
-    Then The user sees the confirmation message
-    And The luggage list shows no luggage
+    And The user sees the confirmation message
+    Then The luggage list shows no luggage
