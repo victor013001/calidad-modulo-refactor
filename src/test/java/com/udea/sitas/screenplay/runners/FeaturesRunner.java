@@ -10,6 +10,6 @@ import org.junit.runner.RunWith;
         glue = "com.udea.sitas.screenplay.stepdefinitions",
         snippets = CucumberOptions.SnippetType.CAMELCASE
 )
-public class AddPersonalLuggageRunner {
+public class FeaturesRunner {
 }
 
